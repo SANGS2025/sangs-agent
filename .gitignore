@@ -3,5 +3,4 @@ __pycache__
 .env
 .DS_Store
 *.pyc
-_archive_jarvis_v0/
-
+alembic/versions/__pycache__
