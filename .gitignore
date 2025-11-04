@@ -8,3 +8,6 @@ kb_store.json
 .idea/
 .vscode/
 node_modules/
+.env
+.env.*
+*.env
