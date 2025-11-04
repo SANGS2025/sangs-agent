@@ -1,0 +1,107 @@
+{
+  "entries": [
+    {
+      "id": "kb-0001",
+      "title": "SANGS core policy",
+      "content": "SANGS does not appraise, buy, or sell; we grade and certify only.",
+      "tags": [
+        "policy",
+        "intake"
+      ],
+      "updated_at": "2025-11-03T00:00:00Z"
+    },
+    {
+      "id": "kb-0002",
+      "title": "SANGS intake checklist",
+      "content": "(revised) Add courier insurance evidence (proof) when value exceeds R50,000.",
+      "tags": [
+        "intake",
+        "courier"
+      ],
+      "updated_at": "2025-11-03T13:07:12Z"
+    },
+    {
+      "id": "kb-0003",
+      "title": "Return logistics",
+      "content": "After QC, arrange courier return and update tracking.",
+      "tags": [
+        "logistics"
+      ],
+      "updated_at": "2025-11-03T12:41:57Z"
+    },
+    {
+      "id": "kb-0004",
+      "title": "SANGS intake checklist",
+      "content": "Full name, email, phone, city/region, type (coins/notes), approx qty. If courier: pickup address, pickup date, time window, ready-by time, insurance, declared value, special handling.",
+      "tags": [
+        "intake",
+        "courier"
+      ],
+      "updated_at": "2025-11-03T12:45:22Z"
+    },
+    {
+      "id": "kb-0005",
+      "title": "Return logistics",
+      "content": "After QC, arrange courier return and update tracking.",
+      "tags": [
+        "logistics"
+      ],
+      "updated_at": "2025-11-03T12:45:44Z"
+    },
+    {
+      "id": "kb-0006",
+      "title": "SANGS courier intake fields",
+      "content": "Collect pickup address, pickup date, time window, and ready-by time.\nInclude insurance required (Y/N), declared value (ZAR), special handling, and building access notes.",
+      "tags": [
+        "intake",
+        "courier",
+        "logistics"
+      ],
+      "updated_at": "2025-11-03T13:04:20Z"
+    },
+    {
+      "id": "kb-0007",
+      "title": "SANGS turnaround times",
+      "content": "Standard: 10–15 business days; Express: 3–5; Super Express: 1–2.",
+      "tags": [
+        "ops",
+        "sla"
+      ],
+      "updated_at": "2025-11-03T13:05:13Z"
+    },
+    {
+      "id": "kb-0008",
+      "title": "Demo note",
+      "content": "Example content",
+      "tags": [
+        "demo"
+      ],
+      "updated_at": "2025-11-03T13:32:15Z"
+    },
+    {
+      "id": "kb-0009",
+      "title": "Owner/Director of SANGS",
+      "content": "(empty)",
+      "tags": [
+        "Dario Deligiannidis"
+      ],
+      "updated_at": "2025-11-03T13:40:57Z"
+    },
+    {
+      "id": "kb-0010",
+      "title": "Demo note",
+      "content": "Example content",
+      "tags": [
+        "demo"
+      ],
+      "updated_at": "2025-11-03T13:41:19Z"
+    },
+    {
+      "id": "kb-0011",
+      "title": "Owner/Director of SANGS",
+      "content": "Dario Deligiannidis",
+      "tags": [],
+      "updated_at": "2025-11-03T14:26:41Z"
+    }
+  ]
+}
