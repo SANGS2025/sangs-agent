@@ -59,8 +59,17 @@ CREATE TABLE IF NOT EXISTS certs (
   serial_number   text UNIQUE NOT NULL,        -- e.g., 12438484-001
   consignment_id  bigint REFERENCES consignments(id) ON DELETE SET NULL,
   item_id         bigint REFERENCES consignment_items(id) ON DELETE SET NULL,
+  country         text,
+  year            text,
   coin_name       text,
-  grade           text,
+  addl1           text,
+  addl2           text,
+  addl3           text,
+  grade1          text,
+  grade2          text,
+  coin_key        text,
+  grade_family    text,
+  grade_number    int,
   strike          text,                         -- PF/PL/MS (optional)
   img_front_url   text,
   img_back_url    text,
