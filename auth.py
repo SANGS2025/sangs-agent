@@ -3,12 +3,12 @@ import os
 import time
 from typing import Optional
 
+import bcrypt
 import psycopg
 from psycopg.rows import dict_row
 from fastapi import APIRouter, HTTPException, Header
 from pydantic import BaseModel, EmailStr
 from jose import jwt, JWTError
-from passlib.context import CryptContext
 
 from db import pool  # use the shared pool
 
@@ -21,7 +21,16 @@ JWT_AUDIENCE = os.getenv("JWT_AUDIENCE", "SANGS-STAFF")
 ACCESS_TTL   = int(os.getenv("JWT_ACCESS_TTL_SECONDS", "3600"))
 REFRESH_TTL  = int(os.getenv("JWT_REFRESH_TTL_SECONDS", "1209600"))
 
-pwd_ctx = CryptContext(schemes=["bcrypt"], deprecated="auto")
+
+def _hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+def _verify_password(password: str, hashed: str) -> bool:
+    try:
+        return bcrypt.checkpw(password.encode("utf-8"), hashed.encode("utf-8"))
+    except Exception:
+        return False
 
 class LoginIn(BaseModel):
     email: EmailStr
@@ -69,7 +78,13 @@ def _issue_tokens(email: str, role: str) -> TokenOut:
 @router.post("/login", response_model=TokenOut)
 def login(payload: LoginIn):
     user = _fetch_user(payload.email)
-    if not user or not pwd_ctx.verify(payload.password, user["password_hash"]):
+    if not user:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+
+    if not user.get("password_hash"):
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+
+    if not _verify_password(payload.password, user["password_hash"]):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     return _issue_tokens(user["email"], user["role"])
 
@@ -88,7 +103,7 @@ def signup(payload: SignupIn):
         raise HTTPException(status_code=400, detail="Password must be at least 8 characters")
     
     # Hash password
-    password_hash = pwd_ctx.hash(payload.password)
+    password_hash = _hash_password(payload.password)
     
     # Insert new user with 'user' role (public users, not admin/staff)
     sql = """
